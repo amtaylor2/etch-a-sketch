@@ -26,10 +26,13 @@ const gridMaker = () => {
    let  i = 1
     while (i < 257) {
 const gridBox = document.createElement('div');
-gridBox.setAttribute('id','box'+ i);
+gridBox.setAttribute('id',i);
 gridBox.setAttribute('class', 'gridBox');
 gridBox.style.border = '5px solid black';
 gridBox.textContent = i;
+gridBox.addEventListener('mouseover', (e) => {
+    gridBox.style.backgroundColor = 'black';
+});
 
 container.appendChild(gridBox);
 
@@ -37,11 +40,4 @@ i++
     }
 }
 gridMaker();
-
-const gridItemPlacer = () => {
-
-}
-
-
-
 
