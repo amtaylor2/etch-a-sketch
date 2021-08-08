@@ -22,9 +22,9 @@ container.style.border = '5px solid blue';
 
 body.appendChild(container);
 
-const gridMaker = () => {
+const gridMaker = (x=16) => {
    let  i = 1
-    while (i < 257) {
+    while (i < x*x + 1) {
 const gridBox = document.createElement('div');
 gridBox.setAttribute('id',i);
 gridBox.setAttribute('class', 'gridBox');
@@ -44,9 +44,16 @@ gridMaker();
 const clearButton = document.createElement('button');
 clearButton.style.alignContent = 'center';
 clearButton.innerHTML = 'Clear board';
-clearButton.addEventListener('click', () => {
-    confirm('Are you sure you want to erase you beautiful art work?')
-})
+
+
+const clearBoard = () => { clearButton.addEventListener('click', (e) => {
+    e = confirm('Are you sure?')
+    if (e) {
+        querySelectorAll('.gridBox');
+        gridBox.style.backgroundColor = 'white';
+    }
+});
+};
 /*button.addEventListener('click', () => {
     prompt('Please enter the size of your grid')
 });
@@ -55,5 +62,12 @@ body.appendChild(clearButton);
 
 const changeButton = document.createElement('button');
 changeButton.innerHTML = 'Clear and change grid size';
+changeButton.addEventListener('click', (e) => {
+    e = confirm('Are you sure?')
+    if (e) {
+       result =  prompt('How large do you want you grid to be?')
+       return gridMaker(result);        
+    };
+});
 
 body.appendChild(changeButton);
