@@ -41,3 +41,19 @@ i++
 }
 gridMaker();
 
+const clearButton = document.createElement('button');
+clearButton.style.alignContent = 'center';
+clearButton.innerHTML = 'Clear board';
+clearButton.addEventListener('click', () => {
+    confirm('Are you sure you want to erase you beautiful art work?')
+})
+/*button.addEventListener('click', () => {
+    prompt('Please enter the size of your grid')
+});
+*/
+body.appendChild(clearButton);
+
+const changeButton = document.createElement('button');
+changeButton.innerHTML = 'Clear and change grid size';
+
+body.appendChild(changeButton);
