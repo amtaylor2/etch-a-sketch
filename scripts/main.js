@@ -22,51 +22,44 @@ container.style.border = '5px solid blue';
 
 body.appendChild(container);
 
-const gridMaker = (x=16) => {
+const  gridMaker = (x=16) => {
    let  i = 1
     while (i < x*x + 1) {
 const gridBox = document.createElement('div');
-gridBox.setAttribute('id',i);
+//gridBox.setAttribute('id',i);
 gridBox.setAttribute('class', 'gridBox');
 gridBox.style.border = '5px solid black';
 gridBox.textContent = i;
-gridBox.addEventListener('mouseover', (e) => {
+gridBox.style.backgroundColor = 'white';
+const draw = () => { gridBox.addEventListener('mouseover', (e) => {
     gridBox.style.backgroundColor = 'black';
 });
-
+};
 container.appendChild(gridBox);
-
+draw();
 i++
     }
-}
+    
+};
+
 gridMaker();
 
+//need to remove black background if clear is confirmed
 const clearButton = document.createElement('button');
-clearButton.style.alignContent = 'center';
 clearButton.innerHTML = 'Clear board';
+clearButton.addEventListener('click', (e) => {
+confirm('Are you sure?');});
 
-
-const clearBoard = () => { clearButton.addEventListener('click', (e) => {
-    e = confirm('Are you sure?')
-    if (e) {
-        querySelectorAll('.gridBox');
-        gridBox.style.backgroundColor = 'white';
-    }
-});
-};
-/*button.addEventListener('click', () => {
-    prompt('Please enter the size of your grid')
-});
-*/
 body.appendChild(clearButton);
 
+//change button will only add new boxes, does not remove old boxes
 const changeButton = document.createElement('button');
 changeButton.innerHTML = 'Clear and change grid size';
 changeButton.addEventListener('click', (e) => {
     e = confirm('Are you sure?')
     if (e) {
        result =  prompt('How large do you want you grid to be?')
-       return gridMaker(result);        
+       gridMaker(result);        
     };
 });
 
