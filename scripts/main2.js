@@ -71,6 +71,8 @@ buttonDiv.appendChild(clearButton);
 
 const changeGrid
 
+//create funct to promt user input, return input as result
+//use result to update grid templates, gridmaker;
 const changeButton = document.createElement('button');
 changeButton.setAttribute('class', 'ccButtons');
 changeButton.innerHTML = 'Change Etch-a-Sketch size and clear board';
