@@ -4,6 +4,9 @@ const etchFrame = document.createElement('div');
 etchFrame.style.border = '10px solid red';
 document.body.appendChild(etchFrame);
 
+//Explore adding new class to div gridBox; similar to having
+//a toggle feature; May make it easier to clear/change
+
 const changeGrid = () => {
     changeButton.addEventListener('click', (e) => {
         confirm('Are you sure you want to erase this masterpiece?')
