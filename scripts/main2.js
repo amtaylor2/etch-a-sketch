@@ -47,7 +47,8 @@ const gBox = document.querySelectorAll('div.gridBox');
 
 const clear = () => {
     gBox.forEach( (g) => {
-        g.style.backgroundColor = 'grey';              
+        g.style.backgroundColor = 'grey';
+        g.style.border = '3px solid grey';              
     })    
 };
 
