@@ -1,7 +1,25 @@
 let result = 16;
+
 const etchFrame = document.createElement('div');
 etchFrame.style.border = '10px solid red';
 document.body.appendChild(etchFrame);
+
+const changeGrid = () => {
+    changeButton.addEventListener('click', (e) => {
+        confirm('Are you sure you want to erase this masterpiece?')
+        if (e) {
+           let reply = prompt(`How large do you want to Etch-a-Sketch?(Max size = 100 x 100) \n Current size: ${result} x ${result} `)
+           reply = Number(reply); 
+           console.log(Number.isInteger(reply))
+           if (Number.isInteger(reply) && reply <= 100) {
+                result = reply;
+                console.log(result);
+                return result;
+            }      
+        }
+    })
+    return result; //need global var result to update after execution
+};
 
 const container = document.createElement('div');
 container.setAttribute('id', 'container');
@@ -41,7 +59,10 @@ const draw = () => {
         })
 }
     )};
+    
 
+
+console.log(result);
 const buttonDiv = document.createElement('div');
 buttonDiv.style.border = '3px solid black';
 document.body.appendChild(buttonDiv);
@@ -69,9 +90,9 @@ clearButton.addEventListener('click', (e) => {
 
 buttonDiv.appendChild(clearButton);
 
-const changeGrid
 
-//create funct to promt user input, return input as result
+
+//create funct to prompt user input, return input as result
 //use result to update grid templates, gridmaker;
 const changeButton = document.createElement('button');
 changeButton.setAttribute('class', 'ccButtons');
@@ -79,5 +100,4 @@ changeButton.innerHTML = 'Change Etch-a-Sketch size and clear board';
 changeButton.style.float = 'right';
 
 buttonDiv.appendChild(changeButton);
-
-
+changeGrid();
